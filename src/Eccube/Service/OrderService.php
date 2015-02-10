@@ -8,7 +8,6 @@ use Symfony\Component\HttpFoundation\Request;
 class OrderService
 {
 	public function find($orderId) {
-		echo $orderId;
-		return false;
+		return $app['orm.em']->getRepository('Eccube\\Entity\\Products')->find($orderId);
 	}
 }

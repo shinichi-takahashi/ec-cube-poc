@@ -1,0 +1,17 @@
+Eccube\Entity\Products:
+    type: entity
+    table: products
+    repositoryClass: Eccube\Repository\ProductRepository
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        name:
+            type: string
+            length: 100
+        price:
+            type: integer
+            scale: 2
+        description:
+            type: text

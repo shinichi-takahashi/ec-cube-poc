@@ -2,14 +2,14 @@
 
 namespace Eccube\Controller;
 
-use Eccube\Application;
+use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
 
-class OrderController
+class ProductController
 {
-	public function index(Application $app)
+	public function index(\Silex\Application $app)
 	{
-		$result = $app['eccube.service.order']->find($app['request']->get('orderId'));
+		$result = $app['eccube.service.product']->find($app['request']->get('productId'));
 		if ($result) {
 			return 'service ok';
 		} else {

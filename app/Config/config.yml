@@ -1,0 +1,8 @@
+doctrine:
+    orm:
+        driver:   pdo_pgsql
+        host:     localhost
+        dbname:   eccube_silex
+        user:     eccube_db_user
+        password: password
+        charset:  UTF8

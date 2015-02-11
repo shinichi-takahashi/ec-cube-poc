@@ -1,0 +1,14 @@
+Eccube\Entity\Customer:
+    type: entity
+    repositoryClass: Eccube\Repository\CustomerRepository
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        name01: 
+            type: string
+            length: 100
+        name02:
+            type: string
+            length: 100

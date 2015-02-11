@@ -17,5 +17,9 @@ class OrderController
 		}
 	}
 
+	public function add(Application $app)
+	{
+		return $app['eccube.service.order']->insert();
+	}
 
 }

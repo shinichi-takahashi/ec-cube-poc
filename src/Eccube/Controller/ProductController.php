@@ -9,7 +9,10 @@ class ProductController
 {
 	public function index(\Silex\Application $app)
 	{
-		$result = $app['eccube.service.product']->find($app['request']->get('productId'));
+		$result = $app['orm.em']
+					->getRepository('Eccube\\Entity\\Products')
+					->find($app['request']->get('productId'));
+
 		if ($result) {
 			return 'service ok';
 		} else {

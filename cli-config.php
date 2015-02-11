@@ -3,8 +3,7 @@ use Doctrine\ORM\Tools\Console\ConsoleRunner;
 
 require_once 'vendor/autoload.php';
 
-$app = new Silex\Application();
-
+$app = new Eccube\Application();
 
 $entityManager = $app['orm.em'];
 

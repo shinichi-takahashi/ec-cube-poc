@@ -37,22 +37,11 @@ class Application extends \Silex\Application
 		            array(
 		                'type' => 'simple_yml',
 		                'namespace' => 'Eccube\Entity',
-		                'path' => __DIR__ . '/Resource/doctrine',
+		                'path' => __DIR__ . '/Resources/doctrine',
 		            )
 		        )
 		    ),
 		));
-
-
-
-
-		// DIがんばる
-		$app['eccube.service.order'] = function() {
-			return new Service\OrderService();
-		};
-		$app['eccube.service.product'] = function() {
-			return new Service\ProductService();
-		};
 
 	}
 

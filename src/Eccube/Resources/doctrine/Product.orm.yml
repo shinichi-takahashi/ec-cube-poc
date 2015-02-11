@@ -1,6 +1,5 @@
-Eccube\Entity\Products:
+Eccube\Entity\Product:
     type: entity
-    table: products
     repositoryClass: Eccube\Repository\ProductRepository
     id:
         id:
@@ -15,3 +14,5 @@ Eccube\Entity\Products:
             scale: 2
         description:
             type: text
+        stock:
+            type: integer

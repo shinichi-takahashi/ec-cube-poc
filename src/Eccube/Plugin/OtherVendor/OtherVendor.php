@@ -1,10 +1,10 @@
 <?php
 
-namespace Eccube\Plugin\Lockon;
+namespace Eccube\Plugin\OtherVendor;
 
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
-class Lockon implements EventSubscriberInterface
+class OtherVendor implements EventSubscriberInterface
 {
 	private $app;
 
@@ -24,7 +24,7 @@ class Lockon implements EventSubscriberInterface
 
 	public function onControllerOrderAdd()
 	{
-		echo 'Called method:: Lockon\onControllerOrderAdd<br />';
+		echo 'Called method:: OtherVendor\onControllerOrderAdd<br />';
 		$event = new Event();
 		$event->sample();
 	}

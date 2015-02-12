@@ -1,6 +1,6 @@
 <?php
 
-namespace Eccube\Plugin\Lockon;
+namespace Eccube\Plugin\OtherVendor;
 
 use Symfony\Component\EventDispatcher\Event as SfEvent;
 
@@ -12,6 +12,6 @@ class Event extends SfEvent
 
 	public function sample()
 	{
-		echo '[[LockonVendorSample]]<br />';
+		echo '[[OtherVendorSample]]<br />';
 	}
 }

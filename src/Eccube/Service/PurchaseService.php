@@ -5,7 +5,7 @@ namespace Eccube\Service;
 use Eccube\Application;
 use Symfony\Component\HttpFoundation\Request;
 
-class PurchaseService
+class PurchaseService extends AbstractService
 {
 	private $app;
 
@@ -15,6 +15,6 @@ class PurchaseService
 	}
 
 	public function calc() {
-		return 100;
+		return 105;
 	}
 }

@@ -5,7 +5,7 @@ namespace Eccube\Controller;
 use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
 
-class ProductController
+class ProductController extends AbstractController
 {
 	public function index(\Silex\Application $app)
 	{

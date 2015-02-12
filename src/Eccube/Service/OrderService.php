@@ -6,7 +6,7 @@ use Eccube\Application;
 use Eccube\Entity\Order;
 use Symfony\Component\HttpFoundation\Request;
 
-class OrderService
+class OrderService extends AbstractService
 {
 	private $app;
 	
@@ -15,12 +15,12 @@ class OrderService
 		$this->app = $app;
 	}
 
-	public function insert() {
+	public function insert($total) {
 		// 商品の取得
 		$product = $this->app['orm.em']
 			->getRepository('Eccube\\Entity\\Product')
 			->find($this->app['request']->get('product_id'));
-		
+
 		// 顧客情報の取得
 		$customer = $this->app['orm.em']
 			->getRepository('Eccube\\Entity\\Customer')
@@ -34,10 +34,6 @@ class OrderService
 		$product->setStock( $product->getStock() - 1 );
 		$this->app['orm.em']->persist($product);
 		$this->app['orm.em']->flush();
-
-		// 合計値段を計算（モック）
-		$total = $this->app['eccube.service.purchase']
-			->calc();
 
 		// 注文情報を登録
 		$order = new Order();

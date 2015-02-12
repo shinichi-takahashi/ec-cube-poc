@@ -4,6 +4,7 @@ namespace Eccube;
 
 use Symfony\Component\HttpFoundation\Request as BaseRequest;
 use Symfony\Component\EventDispatcher\EventDispatcher;
+use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\Yaml\Yaml;
 
 
@@ -26,11 +27,12 @@ class Application extends \Silex\Application
 		    return $config;
 		};
 
+
 		// ORM設定
 		$app->register(new \Silex\Provider\DoctrineServiceProvider(), array(
 		    'db.options' => $app['config']['doctrine']['orm']
 		));
-		$app->register(new \Dflydev\Silex\Provider\DoctrineOrm\DoctrineOrmServiceProvider, array(
+		$app->register(new \Dflydev\Silex\Provider\DoctrineOrm\DoctrineOrmServiceProvider(), array(
 		    'orm.em.options' => array(
 		    	'auto_generate_proxies' => false,
 		        'mappings' => array(
@@ -45,12 +47,12 @@ class Application extends \Silex\Application
 
 	}
 
+
     public function run(BaseRequest $request = null)
     {
         if (null === $request) {
             $request = BaseRequest::createFromGlobals();
         }
-		// Router読み込み
 
         parent::run($request);
     }

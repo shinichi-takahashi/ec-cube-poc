@@ -5,7 +5,7 @@ namespace Eccube\Service;
 use Eccube\Application;
 use Symfony\Component\HttpFoundation\Request;
 
-class ProductService
+class ProductService extends AbstractService
 {
 	private $app;
 

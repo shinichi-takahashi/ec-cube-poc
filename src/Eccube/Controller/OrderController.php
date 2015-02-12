@@ -5,7 +5,7 @@ namespace Eccube\Controller;
 use Eccube\Application;
 use Symfony\Component\HttpFoundation\Request;
 
-class OrderController
+class OrderController extends AbstractController
 {
 	public function index(Application $app)
 	{
@@ -19,7 +19,10 @@ class OrderController
 
 	public function add(Application $app)
 	{
-		return $app['eccube.service.order']->insert();
-	}
+		$app['eccube.event.dispatcher']->dispatch('eccube.controller.order::add');
 
+		$total = $app['eccube.service.purchase']->calc();
+		$app['eccube.service.order']->insert($total);
+		return 'order completed';
+	}
 }

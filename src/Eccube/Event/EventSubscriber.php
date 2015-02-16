@@ -16,7 +16,12 @@ class EventSubscriber
 	public function subscribe()
 	{
 		$finder = new Finder();
-		$finder->in(__DIR__ . '/../Plugin')->directories();
+		$finder
+			->in(__DIR__ . '/../Plugin')
+			->directories()
+			->exclude('Entity')
+			->exclude('Repository')
+		;
 		
 		foreach ($finder as $dir) {
 			$plugin = $dir->getFilename();

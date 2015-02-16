@@ -22,16 +22,7 @@ class EventSubscriber
 			$plugin = $dir->getFilename();
 			
 			$initClass = '\\Eccube\\Plugin\\' . $plugin . '\\' . $plugin ;
-			$eventClass = '\\Eccube\\Plugin\\' . $plugin . '\\Event';
 			$subscriber = new $initClass($this->app);
-
-	        $events = $subscriber->getSubscribedEvents();
-
-	        foreach ($events as $event => $subscribers) {
-				$this->app[$event] = function() use ($eventClass) {
-					return new $eventClass();
-				};
-	        }
 
 	        $this->app['eccube.event.dispatcher']->addSubscriber($subscriber);
 		}
